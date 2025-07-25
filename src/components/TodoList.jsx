@@ -48,7 +48,7 @@ const TodoList = ({ tasks, setTasks }) => {
           Completed
         </button>
       </div>
-      <ul className="list-none w-full flex flex-col gap-2">
+      <ul className="list-none w-full flex flex-col gap-5">
         {filteredTasks.map((item) => (
           <TodoItem
             key={item.id}

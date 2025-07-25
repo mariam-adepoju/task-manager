@@ -11,12 +11,12 @@ const TodoItem = ({ item, tasks, setTasks }) => {
   };
   return (
     <li
-      className={"flex justify-between items-center bg-gray-100 p-3 rounded-md"}
+      className={"flex justify-between items-center bg-gray-100 p-5 rounded-md"}
     >
       <p className={`${item.isCompleted ? "line-through" : ""} capitalize`}>
         {item.name}
       </p>
-      <div className="flex gap-2">
+      <div className="flex gap-5">
         <button
           onClick={() => handleCompleteTask(item.id)}
           disabled={item.isCompleted}
