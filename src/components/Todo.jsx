@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 import Form from "./Form";
-import Header from "./Header";
 
 const Todo = () => {
   const [tasks, setTasks] = useState(() => {
@@ -14,8 +13,7 @@ const Todo = () => {
   }, [tasks]);
 
   return (
-    <div className="w-full">
-      <Header />
+    <div className="w-full px-5">
       <Form tasks={tasks} setTasks={setTasks} />
       <TodoList tasks={tasks} setTasks={setTasks} />
     </div>
