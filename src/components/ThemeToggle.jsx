@@ -19,7 +19,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setIsDark(!isDark)}
-      className="p-2 rounded bg-transparent text-blue-950 cursor-pointer fixed top-2.5 right-2.5"
+      className="p-2 rounded bg-transparent text-blue-950 cursor-pointer absolute top-2.5 right-2.5"
     >
       {isDark ? (
         <svg
