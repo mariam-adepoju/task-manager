@@ -21,8 +21,14 @@ const TodoItem = ({ item, tasks, setTasks, setTask }) => {
       className={"flex justify-between items-center bg-gray-100 p-5 rounded-md"}
     >
       <p
-        onClick={() => handleEditTask(item.id)}
-        className={`${item.isCompleted ? "line-through" : ""} capitalize`}
+        onClick={() => {
+          if (!item.isCompleted) handleEditTask(item.id);
+        }}
+        className={`${
+          item.isCompleted
+            ? "line-through cursor-not-allowed text-gray-500"
+            : "cursor-pointer"
+        } capitalize`}
       >
         {item.name}
       </p>
@@ -30,6 +36,7 @@ const TodoItem = ({ item, tasks, setTasks, setTask }) => {
         <button
           onClick={() => handleCompleteTask(item.id)}
           disabled={item.isCompleted}
+          className="cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
         >
           <svg
             stroke="currentColor"
@@ -44,7 +51,10 @@ const TodoItem = ({ item, tasks, setTasks, setTask }) => {
           </svg>
         </button>
 
-        <button onClick={() => handleDeleteTask(item)}>
+        <button
+          onClick={() => handleDeleteTask(item)}
+          className="cursor-pointer"
+        >
           <svg
             stroke="currentColor"
             fill="currentColor"

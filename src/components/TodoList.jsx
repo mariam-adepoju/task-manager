@@ -30,19 +30,19 @@ const TodoList = ({ tasks, setTasks, setTask }) => {
     <div className="max-w-[500px] mx-auto mb-10">
       <div className="flex justify-center items-center gap-2 my-10">
         <button
-          className="border-0 rounded-lg bg-blue-950 py-2 px-3 text-white font-semibold hover:opacity-90"
+          className="border-0 rounded-lg bg-blue-950 py-2 px-3 cursor-pointer text-white font-semibold hover:opacity-90"
           onClick={showAll}
         >
           All
         </button>
         <button
-          className="border-0 rounded-lg bg-blue-950 py-2 px-3 text-white font-semibold hover:opacity-90"
+          className="border-0 rounded-lg bg-blue-950 py-2 px-3 cursor-pointer text-white font-semibold hover:opacity-90"
           onClick={showPending}
         >
           Pending
         </button>
         <button
-          className="border-0 rounded-lg bg-blue-950  py-2 px-3 text-white font-semibold hover:opacity-90"
+          className="border-0 rounded-lg bg-blue-950  py-2 px-3 cursor-pointer text-white font-semibold hover:opacity-90"
           onClick={showCompleted}
         >
           Completed

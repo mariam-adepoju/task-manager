@@ -23,7 +23,7 @@ const Form = ({ tasks, setTasks, task, setTask }) => {
         placeholder="Enter Task..."
       />
       <button
-        className="w-1/5 border-0 rounded-r-lg bg-blue-950 px-5 py-3 text-white text-lg font-bold hover:opacity-90"
+        className="w-1/5 border-0 rounded-r-lg cursor-pointer bg-blue-950 px-5 py-3 text-white text-lg font-bold hover:opacity-90"
         type="submit"
       >
         Add
