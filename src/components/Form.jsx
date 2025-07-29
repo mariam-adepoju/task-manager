@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-const Form = ({ tasks, setTasks }) => {
-  const [task, setTask] = useState("");
-
+const Form = ({ tasks, setTasks, task, setTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!task.trim()) return;

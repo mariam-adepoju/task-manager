@@ -1,4 +1,4 @@
-const TodoItem = ({ item, tasks, setTasks }) => {
+const TodoItem = ({ item, tasks, setTasks, setTask }) => {
   const handleCompleteTask = (id) => {
     setTasks(
       tasks.map((task) =>
@@ -9,11 +9,21 @@ const TodoItem = ({ item, tasks, setTasks }) => {
   const handleDeleteTask = (item) => {
     setTasks(tasks.filter((task) => task !== item));
   };
+  const handleEditTask = (id) => {
+    const taskToEdit = tasks.find((task) => task.id === id);
+    // console.log(taskToEdit);
+    if (!taskToEdit) return;
+    setTask(taskToEdit.name);
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
   return (
     <li
       className={"flex justify-between items-center bg-gray-100 p-5 rounded-md"}
     >
-      <p className={`${item.isCompleted ? "line-through" : ""} capitalize`}>
+      <p
+        onClick={() => handleEditTask(item.id)}
+        className={`${item.isCompleted ? "line-through" : ""} capitalize`}
+      >
         {item.name}
       </p>
       <div className="flex gap-5">

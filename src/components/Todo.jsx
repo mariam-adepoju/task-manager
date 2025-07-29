@@ -3,6 +3,7 @@ import TodoList from "./TodoList";
 import Form from "./Form";
 
 const Todo = () => {
+  const [task, setTask] = useState("");
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem("tasks");
     return saved ? JSON.parse(saved) : [];
@@ -14,8 +15,8 @@ const Todo = () => {
 
   return (
     <div className="w-full px-5">
-      <Form tasks={tasks} setTasks={setTasks} />
-      <TodoList tasks={tasks} setTasks={setTasks} />
+      <Form tasks={tasks} setTasks={setTasks} task={task} setTask={setTask} />
+      <TodoList tasks={tasks} setTasks={setTasks} setTask={setTask} />
     </div>
   );
 };

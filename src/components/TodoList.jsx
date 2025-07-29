@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ tasks, setTasks }) => {
+const TodoList = ({ tasks, setTasks, setTask }) => {
   const [filteredTasks, setFilteredTasks] = useState([]);
 
   useEffect(() => {
@@ -54,6 +54,7 @@ const TodoList = ({ tasks, setTasks }) => {
             key={item.id}
             item={item}
             tasks={tasks}
+            setTask={setTask}
             setTasks={setTasks}
           />
         ))}
