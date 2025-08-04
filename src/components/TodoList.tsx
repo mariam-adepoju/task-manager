@@ -39,14 +39,14 @@ const TodoList = () => {
 
   return (
     <div className="w-full mx-auto mb-10">
-      <div className="flex justify-center items-center px-[4%] gap-2 my-10">
+      <div className="flex justify-center items-center px-[4%] my-10">
         <Button
           variant={isActive("all") ? "outline" : "ghost"}
           onClick={showAll}
           className="flex items-center"
         >
           <span
-            className={`text-lg ${
+            className={`text-[14px] sm:text-lg ${
               isActive("all") ? "text-primary" : "text-muted-foreground"
             }`}
           >
@@ -66,7 +66,7 @@ const TodoList = () => {
           className="flex items-center"
         >
           <span
-            className={`text-lg ${
+            className={`text-[14px] sm:text-lg ${
               isActive("pending") ? "text-primary" : "text-muted-foreground"
             }`}
           >
@@ -86,7 +86,7 @@ const TodoList = () => {
           className="flex items-center"
         >
           <span
-            className={`text-lg ${
+            className={`text-14px sm:text-lg ${
               isActive("completed") ? "text-primary" : "text-muted-foreground"
             }`}
           >
@@ -101,7 +101,7 @@ const TodoList = () => {
           </span>
         </Button>
       </div>
-      <ul className="list-none w-full grid grid-cols-1 gap-2.5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <ul className="list-none w-full grid grid-cols-1 gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         <AnimatePresence>
           {filteredTasks.length === 0 ? (
             <li className="col-span-3 text-center text-xl text-primary">
