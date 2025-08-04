@@ -42,7 +42,7 @@ const TodoItem = ({ item }: TodoItemProps) => {
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       whileTap={{ scale: 0.98 }}
-      onDragEnd={(e, info) => {
+      onDragEnd={(_e, info) => {
         if (info.offset.x < -100) handleDelete();
       }}
       initial={{ opacity: 1 }}
