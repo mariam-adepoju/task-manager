@@ -86,10 +86,16 @@ const TaskForm = () => {
     };
     if (task?.id) {
       dispatch(updateTask(newTask));
-      toast.success("Task updated successfully!");
+      toast("Success", {
+        description: "Task updated successfully!",
+        style: { color: "green" },
+      });
     } else {
       dispatch(addTask(newTask));
-      toast.success("Task added successfully!");
+      toast("Success", {
+        description: "Task added successfully!",
+        style: { color: "green" },
+      });
     }
     dispatch(
       setTask({
@@ -107,7 +113,7 @@ const TaskForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-[400px] mx-auto space-y-8 px-2"
+        className="max-w-[400px] mx-auto space-y-8 px-[4%]"
       >
         <FormField
           control={form.control}

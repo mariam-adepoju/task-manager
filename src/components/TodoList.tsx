@@ -39,7 +39,7 @@ const TodoList = () => {
 
   return (
     <div className="w-full mx-auto mb-10">
-      <div className="flex justify-center items-center gap-2 my-10">
+      <div className="flex justify-center items-center px-[4%] gap-2 my-10">
         <Button
           variant={isActive("all") ? "outline" : "ghost"}
           onClick={showAll}
