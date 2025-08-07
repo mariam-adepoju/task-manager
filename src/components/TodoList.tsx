@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import type { Task } from "@/store/type";
 import type { RootState } from "../store/store";
 import { Button } from "@/components/ui/button";
-import { AnimatePresence } from "framer-motion";
 
 const TodoList = () => {
   const tasks: Task[] = useSelector((state: RootState) => state.task.tasks);
@@ -102,15 +101,13 @@ const TodoList = () => {
         </Button>
       </div>
       <ul className="list-none w-full grid grid-cols-1 gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        <AnimatePresence>
-          {filteredTasks.length === 0 ? (
-            <li className="col-span-3 text-center text-xl text-primary">
-              No {activeFilter} tasks found.
-            </li>
-          ) : (
-            filteredTasks.map((item) => <TodoItem key={item.id} item={item} />)
-          )}
-        </AnimatePresence>
+        {filteredTasks.length === 0 ? (
+          <li className="col-span-3 text-center text-xl text-primary">
+            No {activeFilter} tasks found.
+          </li>
+        ) : (
+          filteredTasks.map((item) => <TodoItem key={item.id} item={item} />)
+        )}
       </ul>
     </div>
   );

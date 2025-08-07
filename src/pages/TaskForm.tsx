@@ -59,7 +59,7 @@ const TaskForm = () => {
   });
 
   const task: Task = useSelector((state: RootState) => state.task.task);
-  console.log("task", task);
+  // console.log("task", task);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -75,7 +75,7 @@ const TaskForm = () => {
   }, [task, form]);
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    console.log(data);
+    // console.log(data);
     const newTask = {
       id: task?.id || String(Date.now()),
       title: data.title,

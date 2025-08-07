@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { motion } from "framer-motion";
 import { deleteTask, toggleTaskComplete, setTask } from "../store/taskSlice";
 import { useNavigate } from "react-router-dom";
 import { AlarmClock, CheckCheckIcon, Delete } from "lucide-react";
@@ -14,6 +13,9 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import Modal from "./Modal";
+import { useState } from "react";
+import Backdrop from "./Backdrop";
 type TodoItemProps = {
   item: {
     id: string;
@@ -26,10 +28,15 @@ type TodoItemProps = {
 };
 
 const TodoItem = ({ item }: TodoItemProps) => {
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleToggle = () => dispatch(toggleTaskComplete(item.id));
-  const handleDelete = () => dispatch(deleteTask(item.id));
+  const handleDelete = () => {
+    // console.log("deleting");
+    dispatch(deleteTask(item.id));
+    setShowModal(false);
+  };
   const handleEdit = () => {
     if (!item.isCompleted) {
       dispatch(setTask(item));
@@ -38,17 +45,7 @@ const TodoItem = ({ item }: TodoItemProps) => {
   };
 
   return (
-    <motion.div
-      drag="x"
-      dragConstraints={{ left: 0, right: 0 }}
-      whileTap={{ scale: 0.98 }}
-      onDragEnd={(_e, info) => {
-        if (info.offset.x < -100) handleDelete();
-      }}
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0, x: -200, transition: { duration: 0.2 } }}
-      className="w-full"
-    >
+    <li>
       <Card
         className={cn(
           "transition-shadow max-w-[500px] mx-auto",
@@ -108,13 +105,24 @@ const TodoItem = ({ item }: TodoItemProps) => {
             >
               <CheckCheckIcon />
             </button>
-            <button onClick={() => handleDelete()} className="cursor-pointer">
+            <button
+              onClick={() => setShowModal(true)}
+              className="cursor-pointer"
+            >
               <Delete />
             </button>
           </div>
         </CardFooter>
       </Card>
-    </motion.div>
+      {showModal && <Backdrop />}
+      {showModal && (
+        <Modal
+          message={`Are you sure you want to delete "${item.title}"?`}
+          onConfirm={handleDelete}
+          onCancel={() => setShowModal(false)}
+        />
+      )}
+    </li>
   );
 };
 

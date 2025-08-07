@@ -26,11 +26,11 @@ const taskSlice = createSlice({
       state.tasks.push(action.payload);
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
-    deleteTask(state, action: PayloadAction<string | number>) {
+    deleteTask(state, action: PayloadAction<string>) {
       state.tasks = state.tasks.filter((t: Task) => t.id !== action.payload);
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
-    toggleTaskComplete(state, action: PayloadAction<string | number>) {
+    toggleTaskComplete(state, action: PayloadAction<string>) {
       const task: Task | undefined = state.tasks.find(
         (t: Task) => t.id === action.payload
       );
