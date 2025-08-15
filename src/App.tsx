@@ -1,7 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
-import TaskForm from "./pages/TaskForm";
-import Home from "./pages/Home";
 import { Toaster } from "./components/ui/sonner";
 
 function App() {
@@ -9,10 +8,7 @@ function App() {
     <>
       <Header />
       <Toaster position="top-right" />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/addtask" element={<TaskForm />} />
-      </Routes>
+      <Outlet />
     </>
   );
 }

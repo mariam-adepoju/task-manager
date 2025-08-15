@@ -16,16 +16,7 @@ import { cn } from "@/lib/utils";
 import Modal from "./Modal";
 import { useState } from "react";
 import Backdrop from "./Backdrop";
-type TodoItemProps = {
-  item: {
-    id: string;
-    title: string;
-    description: string;
-    priority: "low" | "medium" | "high";
-    date: string;
-    isCompleted: boolean;
-  };
-};
+import type { TodoItemProps } from "../type";
 
 const TodoItem = ({ item }: TodoItemProps) => {
   const [showModal, setShowModal] = useState(false);
