@@ -1,14 +1,23 @@
-// import { Route, Routes } from "react-router-dom";
-import { Outlet } from "react-router-dom";
-import Header from "./components/Header";
-import { Toaster } from "./components/ui/sonner";
+import { RouterProvider } from "react-router/dom";
+import { createBrowserRouter } from "react-router";
+import RootLayout from "./layout/RootLayout.tsx";
+import Home from "./pages/Home.tsx";
+import TaskForm from "./pages/TaskForm.tsx";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: RootLayout,
+    children: [
+      { index: true, Component: Home },
+      { path: "addtask", Component: TaskForm },
+    ],
+  },
+]);
 function App() {
   return (
     <>
-      <Header />
-      <Toaster position="top-right" />
-      <Outlet />
+      <RouterProvider router={router} />,
     </>
   );
 }
